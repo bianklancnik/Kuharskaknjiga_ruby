@@ -1,0 +1,13 @@
+<h3>Komentarji</h3>
+<% @post.comments.each do |comment| %>
+    <div class="well">
+    <b><%= comment.user.try(:email) %></b><br>
+    <%= comment.body %>
+    <% if comment.user_id == current_user.id %>
+    <%= link_to "Izbriši", [comment.post, comment], 
+                        method: :delete,
+                        data: {confirm: 'Ste prepričani?'},
+                        :class => 'btn btn-danger text-right' %>
+    <% end %>
+    </div>
+<% end %>

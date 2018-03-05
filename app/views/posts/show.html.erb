@@ -1,0 +1,15 @@
+<h2><%= @post.title %></h2>
+<div><%= @post.body %></div>
+<div><%= image_tag @post.image_url.to_s %></div>
+<hr>
+<% if @post.user_id == current_user.id %>
+<%= link_to "Uredi", edit_post_path(@post), :class => 'btn btn-default' %>
+<%= link_to "Izbriši", post_path(@post), 
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        :class => 'btn btn-danger' %>
+<% end %>
+<hr>
+
+<%= render 'comments/form' %>
+<%= render 'comments/comments' %>

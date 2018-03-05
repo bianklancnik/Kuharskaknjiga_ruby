@@ -1,0 +1,28 @@
+<h1>Dodaj recept</h1>
+<%= form_for :post, :html => {:multipart => true}, url: posts_path do |f| %>
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+      <% end %>
+    <% end %>
+<p>
+    <%= f.label :Naslov %><br>
+    <%= f.text_field(:title, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.label :Recept %><br>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.label :image, "Dodaj sliko recepta" %><br>
+    <%= f.file_field :image %> 
+</p> 
+    
+<p>
+  <%= f.submit({:class => 'btn btn-primary'}) %>
+</p>
+
+<% end %>
+
