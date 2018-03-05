@@ -4,10 +4,10 @@
     <b><%= comment.user.try(:email) %></b><br>
     <%= comment.body %>
     <% if comment.user_id == current_user.id %>
-    <%= link_to "Izbriši", [comment.post, comment], 
+    <div class="pull-right"><%= link_to "Izbriši", [comment.post, comment], 
                         method: :delete,
                         data: {confirm: 'Ste prepričani?'},
-                        :class => 'btn btn-danger text-right' %>
+                        :class => 'btn btn-danger text-right' %></div>
     <% end %>
     </div>
 <% end %>
