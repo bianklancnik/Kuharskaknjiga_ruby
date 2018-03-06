@@ -1,5 +1,6 @@
-<h2><%= @post.title %></h2>
-<div><%= @post.body %></div>
+<h1 class="text-center"><b><%= @post.title %></b></h1>
+<div><%= @post.body %></div><br>
+<div class="pull-right"><p><b>Recept napisal: <%= @post.user.email %></b></p></div>
 <div><%= image_tag @post.image_url.to_s %></div>
 <hr>
 <% if @post.user_id == current_user.id %>
@@ -9,7 +10,7 @@
                         data: { confirm: 'Are you sure?' },
                         :class => 'btn btn-danger' %>
 <% end %>
-<hr>
+
 
 <%= render 'comments/form' %>
 <%= render 'comments/comments' %>
